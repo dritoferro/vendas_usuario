@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  pessoa-service:
+    build: .
+    image: usuario:v1
+    container_name: usuarios
+    ports: 
+      - "3000:3000"

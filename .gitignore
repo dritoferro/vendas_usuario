@@ -55,7 +55,17 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+*.env
 
 # next.js build output
 .next
+
+# ignore out js files
+out/
+
+# ignore vs code configs
+.vscode/
+
+# ignore sonar files
+.sonar_lock
+report-task.txt

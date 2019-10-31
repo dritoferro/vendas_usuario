@@ -1,0 +1,38 @@
+{
+  "name": "vendas_pessoa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dritoferro/vendas_pessoa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dritoferro/vendas_pessoa/issues"
+  },
+  "homepage": "https://github.com/dritoferro/vendas_pessoa#readme",
+  "dependencies": {
+    "@types/kafka-node": "^2.0.9",
+    "@types/node": "^12.7.5",
+    "dotenv": "^8.1.0",
+    "fastify": "^2.8.0",
+    "fastify-swagger": "^2.4.0",
+    "ip": "^1.1.5",
+    "kafkajs": "^1.11.0",
+    "mongodb": "^3.3.2",
+    "typescript": "^3.6.3"
+  },
+  "devDependencies": {
+    "@types/ip": "^1.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "eslint": "^6.4.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
