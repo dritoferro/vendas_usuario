@@ -2,8 +2,8 @@ import { dbConn } from '../repository/DbConnection';
 import { Usuario } from '../domain/Usuario';
 import { ObjectId } from 'mongodb';
 import { UsuarioUpdate } from '../domain/UsuarioUpdate';
+import { prepareMessage } from './KafkaService';
 
-//TODO o usuario será criado quando a pessoa for criada, então virá uma mensagem do Kafka com os dados para criar este usuário internamente.
 //TODO implementar encriptação da senha antes de fazer a criação.
 export const insertUsuario = async (usuario: Usuario) => {
     const db = await dbConn();
@@ -12,16 +12,19 @@ export const insertUsuario = async (usuario: Usuario) => {
     return obj.ops;
 }
 
-export const getUsuarioByEmail = async (email: string) => {
+const getUsuarioByEmail = async (email: string) => {
     const db = await dbConn();
     return await db.findOne({ "email": email });
 };
 
 //TODO implementar encriptação da senha antes de fazer a consulta.
-//TODO fazer uma consulta em pessoas para saber se a mesma está ativa antes de retornar
+//TODO A consulta foi feita, mas não sei como lidar com o retorno que vem em outra mensagem...
 export const login = async (usuario: Usuario) => {
     const db = await dbConn();
     const user = await db.findOne({ "email": usuario.email, "senha:": usuario.senha });
+    if (user) {
+        await prepareMessage(usuario.email, 'CHECK_LOGIN');
+    }
     const ativo = true;
     if (ativo) {
         return user;
@@ -50,7 +53,6 @@ export const updatePasswordByEmail = async (usuario: UsuarioUpdate) => {
 
 };
 
-//TODO implementar o recebimento de mensagem do service pessoa para deletar o usuario.
 export const deleteUsuarioByEmail = async (email: string) => {
     const db = await dbConn();
     const temp = await getUsuarioByEmail(email);

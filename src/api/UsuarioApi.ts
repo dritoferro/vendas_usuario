@@ -11,8 +11,9 @@ const postMethod: HTTPMethod = 'POST';
 const updateMethod: HTTPMethod = 'PUT';
 
 const login = async (req, reply) => {
-    const body: Usuario = req.body;
-    const get = await service.login(body);
+    const body = req.body;
+    const temp = new Usuario(body.email, body.senha);
+    const get = await service.login(temp);
     if (get) {
         reply.status(200);
         reply.send(get);
@@ -23,7 +24,8 @@ const login = async (req, reply) => {
 };
 
 const updatePassword = async (req, reply) => {
-    const usuario: UsuarioUpdate = req.body;
+    const body: UsuarioUpdate = req.body;
+    const usuario = new UsuarioUpdate(body.email, body.senhaAtual, body.senhaNova);
     const updated = await service.updatePasswordByEmail(usuario);
     if (updated) {
         reply.status(200);
