@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/dritoferro/vendas_pessoa#readme",
   "dependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/kafka-node": "^2.0.9",
     "@types/node": "^12.7.5",
+    "bcrypt": "^3.0.6",
     "dotenv": "^8.1.0",
     "fastify": "^2.8.0",
     "fastify-swagger": "^2.4.0",
