@@ -24,18 +24,18 @@ export const startConsumer = async () => {
             const payload = JSON.parse(message.value.toString());
 
             switch (payload.message.action) {
-                case 'INSERT':
+                case KafkaActions.INSERT:
                     const temp = new Usuario(payload.message.value.email, payload.message.value.senha);
                     const inserted = await insertUsuario(temp);
                     await prepareMessage(inserted, payload.emitter, payload.message.action);
                     break;
 
-                case 'DELETE':
+                case KafkaActions.DELETE:
                     const deleted = await deleteUsuarioByEmail(payload.message.value);
                     await prepareMessage(deleted, payload.emitter, payload.message.action);
                     break;
 
-                case 'LOGIN_CHECK':
+                case KafkaActions.LOGIN_CHECK:
                     const active = payload.message.value;
                     break;
 
@@ -48,7 +48,7 @@ export const startConsumer = async () => {
     });
 };
 
-export const prepareMessage = async (message: any, action: string, receiver?: string) => {
+export const prepareMessage = async (message: any, action: KafkaActions, receiver?: string) => {
     const query = new KafkaQuery("usuario", message, action);
     const kafkaMessage = new KafkaMessage(query, topic, receiver);
     console.log(kafkaMessage);

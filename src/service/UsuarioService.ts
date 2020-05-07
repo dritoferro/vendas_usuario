@@ -35,7 +35,7 @@ export const login = async (usuario: Usuario) => {
         const checkPass = await compare(usuario.senha, user.senha);
 
         if (checkPass) {
-            await prepareMessage(usuario.email, 'CHECK_LOGIN');
+            await prepareMessage(usuario.email, KafkaActions.LOGIN_CHECK);
         }
     }
 
