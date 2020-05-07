@@ -1,0 +1,19 @@
+{
+    "rules": {
+        "no-var-keyword": true,
+        "curly": true,
+        "eofline": true,
+        "class-name": true,
+        "import-spacing": true,
+        "indent": [
+            true,
+            "spaces",
+            4
+        ]
+    },
+    "linterOptions": {
+        "exclude": [
+            "node_modules"
+        ]
+    }
+}
