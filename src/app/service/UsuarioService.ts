@@ -1,7 +1,7 @@
-import { dbConn } from '../repository/DbConnection';
-import { Usuario } from '../domain/Usuario';
+import { dbConn } from '../../config/DbConnection';
+import { Usuario } from '../model/Usuario';
 import { ObjectId } from 'mongodb';
-import { UsuarioUpdate } from '../domain/UsuarioUpdate';
+import { UsuarioUpdate } from '../model/UsuarioUpdate';
 import { prepareMessage } from './KafkaService';
 import { genSalt, hash, compare } from 'bcrypt';
 

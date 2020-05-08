@@ -2,8 +2,8 @@ import * as endpoint from 'fastify';
 import { HTTPMethod } from 'fastify';
 import * as ip from 'ip';
 import * as service from '../service/UsuarioService';
-import { Usuario } from '../domain/Usuario';
-import { UsuarioUpdate } from '../domain/UsuarioUpdate';
+import { Usuario } from '../model/Usuario';
+import { UsuarioUpdate } from '../model/UsuarioUpdate';
 
 const fast = endpoint({ logger: true });
 

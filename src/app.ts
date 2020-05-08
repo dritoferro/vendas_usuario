@@ -1,5 +1,5 @@
-import {buildRoutes} from './api/UsuarioApi';
-import { startConsumer } from './service/KafkaService';
+import {buildRoutes} from './app/api/UsuarioApi';
+import { startConsumer } from './app/service/KafkaService';
 
 // Run the server!
 const startUp = async () => {
