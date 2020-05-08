@@ -1,8 +1,8 @@
 import { Kafka, CompressionTypes } from 'kafkajs';
-import { KafkaMessage } from '../domain/KafkaMessage';
+import { KafkaMessage } from '../model/KafkaMessage';
 import { deleteUsuarioByEmail, insertUsuario } from './UsuarioService';
-import { Usuario } from '../domain/Usuario';
-import { KafkaQuery } from '../domain/KafkaQuery';
+import { Usuario } from '../model/Usuario';
+import { KafkaQuery } from '../model/KafkaQuery';
 
 const topic = 'Usuario-Topic';
 
