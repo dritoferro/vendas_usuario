@@ -1,5 +1,5 @@
 enum KafkaActions {
-    INSERT = "INSERT",
-    DELETE = "DELETE",
-    LOGIN_CHECK = "LOGIN_CHECK"
+  INSERT = "INSERT",
+  DELETE = "DELETE",
+  LOGIN_CHECK = "LOGIN_CHECK",
 }
